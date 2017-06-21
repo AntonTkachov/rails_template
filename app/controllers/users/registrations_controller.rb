@@ -9,7 +9,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-    params[:user][:role_id] = Role.find_by(title: 'user').id
+    params[:user][:role_id] = Role.user.id
     super
   end
 
