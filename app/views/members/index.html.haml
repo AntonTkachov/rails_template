@@ -8,6 +8,7 @@
         %th Id
         %th First Name
         %th Last Name
+        %th Email
         %th Birth Date
         %th Gender
         %th Role
@@ -19,7 +20,8 @@
           %td= member.id
           %td= member.first_name
           %td= member.last_name
-          %td= member.birth_date
+          %td= member.email
+          %td= member.birth_date.to_formatted_s(:european)
           %td= member.gender
           %td= member.role.title
           %td= member.active?

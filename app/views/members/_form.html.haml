@@ -1,0 +1,12 @@
+= simple_form_for @member, as: :member, url: @member.new_record? ? members_path : member_path do |f|
+  = f.input :first_name
+  = f.input :last_name
+  = f.input :email
+  = f.input :birth_date, start_year: 1980, end_year: Date.today.year
+  = f.input :gender, as: :radio_buttons, collection: User::GENDERS, checked: f.object.gender || User::GENDERS.first
+  = f.association :role, include_blank: false, selected: f.object.role_id || Role.user.id
+  = f.input :active
+  = f.submit @member.persisted? ? 'Update' : 'Create', class: 'btn btn-success'
+  = link_to 'Member List', members_path, class: 'btn btn-primary'
+  - if @member.persisted?
+    = link_to 'Member details', member_path(@member), class: 'btn btn-primary'

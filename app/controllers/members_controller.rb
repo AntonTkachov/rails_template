@@ -9,10 +9,11 @@ class MembersController < ApplicationController
   end
 
   def new
+    @member = User.new
   end
 
   def create
-    @member = Member.new(params[:member])
+    @member = User.new(member_params)
 
     if @member.save
       redirect_to members_path, notice: 'New member was successfully created'
@@ -25,7 +26,7 @@ class MembersController < ApplicationController
   end
 
   def update
-    if @member.update(params[:member])
+    if @member.update(member_params)
       redirect_to members_path, notice: 'Member was successfully updated'
     else
       render :new
@@ -41,5 +42,10 @@ class MembersController < ApplicationController
   private
   def set_member
     @member = User.find(params[:id])
+  end
+
+  def member_params
+    params.require(:member).permit(:first_name, :last_name, :email, :birth_date,
+                                   :gender, :role_id, :active)
   end
 end

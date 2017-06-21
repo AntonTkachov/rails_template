@@ -27,14 +27,10 @@
 class User < ApplicationRecord
   self.per_page = 8
 
-  GENDER = ['male', 'female']
+  GENDERS = ['male', 'female']
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable
 
   belongs_to :role
-
-  def birth_date
-    super.to_formatted_s(:european)
-  end
 end

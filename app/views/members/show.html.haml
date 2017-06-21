@@ -13,11 +13,8 @@
   Email:
   %b= @member.email
 %p
-  Last Name:
-  %b= @member.last_name
-%p
   Birth Date:
-  %b= @member.birth_date
+  %b= @member.birth_date.to_formatted_s(:european)
 %p
   Gender:
   %b= @member.gender
@@ -25,7 +22,7 @@
   Role:
   %b= @member.role.title
 %p
-  Active?:
+  Active:
   %b= @member.active?
 
 = link_to 'Edit', edit_member_path(@member), class: 'btn btn-primary'

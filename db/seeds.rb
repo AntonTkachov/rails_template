@@ -5,11 +5,10 @@ max_birth_date = Date.parse('01.01.2000')
 min_birth_date = Date.parse('01.01.1980')
 
 if Role.count == 0
-  role_titles.each { |role_title| Role.create(title: 'Admin') }
+  role_titles.each { |role_title| Role.create(title: role_title) }
 end
 
 if User.count == 0
-  debugger
   User.create(first_name: 'John', last_name: 'Doe', email: 'admin@mail.com',
               gender: 'male', birth_date: Date.parse('26.12.1989'),
               active: true, role: Role.find_by_title(role_titles.first),

@@ -9,4 +9,11 @@
 #
 
 class Role < ApplicationRecord
+  class << self
+    %w(admin user).each do |role|
+      define_method role do
+        where(title: role.capitalize).first
+      end
+    end
+  end
 end
