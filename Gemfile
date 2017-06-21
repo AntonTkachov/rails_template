@@ -36,3 +36,5 @@ gem 'activeadmin'
 gem 'devise'
 gem 'pundit'
 gem "haml-rails", "~> 0.9"
+gem 'annotate'
+gem 'simple_form'
