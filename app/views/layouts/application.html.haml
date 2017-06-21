@@ -7,4 +7,14 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    = yield
+    %nav.navbar.navbar-inverse
+      .container
+        .navbar-header
+          = link_to 'Upwork Premium Challenge', root_path, class: 'navbar-brand'
+        #navbar.collapse.navbar-collapse
+          %ul.nav.navbar-nav
+            %li.active
+              = link_to 'Users', users_path, class: 'active'
+    .container
+      .row
+        = yield

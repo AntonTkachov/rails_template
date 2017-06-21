@@ -1,0 +1,47 @@
+%h1.page-header
+  List users
+%table.table.table-stripped
+  %thead
+    %tr
+      %th Id
+      %th First Name
+      %th Last Name
+      %th Birth Date
+      %th Gender
+      %th Role
+      %th Active
+      %th Action
+  %tbody
+    %tr
+      %td 1
+      %td John
+      %td Doe
+      %td 26/12/1989
+      %td male
+      %td admin
+      %td true
+      %td
+        = link_to 'Edit', edit_user_path(1), class: 'btn btn-primary'
+        = link_to 'Remove', edit_user_path(1), class: 'btn btn-primary'
+    %tr
+      %td 2
+      %td Carl
+      %td Fox
+      %td 01/06/1990
+      %td male
+      %td user
+      %td false
+      %td
+        = link_to 'Edit', edit_user_path(2), class: 'btn btn-primary'
+        = link_to 'Remove', edit_user_path(2), class: 'btn btn-primary'
+    %tr
+      %td 3
+      %td Tina
+      %td Bay
+      %td 01/05/1993
+      %td female
+      %td user
+      %td false
+      %td
+        = link_to 'Edit', edit_user_path(3), class: 'btn btn-primary'
+        = link_to 'Remove', edit_user_path(3), class: 'btn btn-primary'
