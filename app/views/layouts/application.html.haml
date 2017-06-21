@@ -14,7 +14,8 @@
         #navbar.collapse.navbar-collapse
           %ul.nav.navbar-nav
             %li.active
-              = link_to 'Users', users_path, class: 'active'
+              = link_to 'Members', members_path, class: 'active'
     .container
-      .row
-        = yield
+      = render 'layouts/flash_messages', flash: flash
+
+      = yield

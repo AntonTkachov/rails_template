@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170621160834) do
+ActiveRecord::Schema.define(version: 20170621175515) do
 
   create_table "roles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "title"
@@ -27,8 +27,8 @@ ActiveRecord::Schema.define(version: 20170621160834) do
     t.string "first_name"
     t.string "last_name"
     t.string "gender"
-    t.date "birthday"
-    t.boolean "status", default: true
+    t.date "birth_date"
+    t.boolean "active", default: true
     t.bigint "role_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -11,8 +11,8 @@
 #  first_name             :string(255)
 #  last_name              :string(255)
 #  gender                 :string(255)
-#  birthday               :date
-#  status                 :boolean          default(TRUE)
+#  birth_date             :date
+#  active                 :boolean          default(TRUE)
 #  role_id                :integer
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
@@ -25,11 +25,16 @@
 #
 
 class User < ApplicationRecord
+  self.per_page = 8
+
   GENDER = ['male', 'female']
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable
 
   belongs_to :role
-  
+
+  def birth_date
+    super.to_formatted_s(:european)
+  end
 end

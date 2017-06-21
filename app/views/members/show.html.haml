@@ -1,0 +1,32 @@
+%h1.page-header
+  Member Details:
+  %i
+    = "#{@member.first_name} #{@member.last_name}"
+
+%p
+  First Name:
+  %b= @member.first_name
+%p
+  Last Name:
+  %b= @member.last_name
+%p
+  Email:
+  %b= @member.email
+%p
+  Last Name:
+  %b= @member.last_name
+%p
+  Birth Date:
+  %b= @member.birth_date
+%p
+  Gender:
+  %b= @member.gender
+%p
+  Role:
+  %b= @member.role.title
+%p
+  Active?:
+  %b= @member.active?
+
+= link_to 'Edit', edit_member_path(@member), class: 'btn btn-primary'
+= link_to 'Member List', members_path, class: 'btn btn-primary'

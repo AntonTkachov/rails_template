@@ -1,0 +1,36 @@
+%h1.page-header
+  Member List
+
+.row
+  %table.table.table-stripped
+    %thead
+      %tr
+        %th Id
+        %th First Name
+        %th Last Name
+        %th Birth Date
+        %th Gender
+        %th Role
+        %th Active
+        %th Action
+    %tbody
+      - @members.each do |member|
+        %tr
+          %td= member.id
+          %td= member.first_name
+          %td= member.last_name
+          %td= member.birth_date
+          %td= member.gender
+          %td= member.role.title
+          %td= member.active?
+          %td
+            = link_to 'Details', member_path(member), class: 'btn btn-primary'
+            = link_to 'Edit', edit_member_path(member), class: 'btn btn-primary'
+            = link_to 'Remove', member_path(member), class: 'btn btn-danger',
+                      :'data-confirm' => 'Are you sure?', :'data-method' => :delete
+
+.text-center
+  = will_paginate @members
+
+.row
+  = link_to 'New member', new_member_path, class: 'btn btn-success'
