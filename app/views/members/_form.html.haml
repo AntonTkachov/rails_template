@@ -1,4 +1,5 @@
 = simple_form_for @member, as: :member, url: @member.new_record? ? members_path : member_path do |f|
+  = f.error_notification
   = f.input :first_name
   = f.input :last_name
   = f.input :email

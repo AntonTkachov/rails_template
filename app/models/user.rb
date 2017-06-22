@@ -34,6 +34,9 @@ class User < ApplicationRecord
 
   belongs_to :role
 
+  validates :first_name, :last_name, :gender, :birth_date, :active, presence: true
+  validates_format_of :email,:with => Devise::email_regexp
+
   def admin?
     role.title == 'Admin'
   end
