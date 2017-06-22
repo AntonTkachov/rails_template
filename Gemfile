@@ -39,7 +39,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'activeadmin'
 gem 'devise'
 gem 'pundit'
-gem "haml-rails", "~> 0.9"
+gem "haml-rails"
 gem 'annotate'
 gem 'simple_form'
 gem 'faker'
