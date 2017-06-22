@@ -1,5 +1,6 @@
 class MembersController < ApplicationController
   before_action :set_member, except: [:index, :new, :create]
+  before_action :check_permission, except: [:index, :show]
 
   def index
     @members = User.paginate(page: params[:page])
@@ -47,5 +48,9 @@ class MembersController < ApplicationController
   def member_params
     params.require(:member).permit(:first_name, :last_name, :email, :birth_date,
                                    :gender, :role_id, :active)
+  end
+
+  def check_permission
+    authorize :member
   end
 end

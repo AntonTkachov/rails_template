@@ -25,5 +25,6 @@
   Active:
   %b= @member.active?
 
-= link_to 'Edit', edit_member_path(@member), class: 'btn btn-primary'
+- if policy.edit?
+  = link_to 'Edit', edit_member_path(@member), class: 'btn btn-primary'
 = link_to 'Member List', members_path, class: 'btn btn-primary'

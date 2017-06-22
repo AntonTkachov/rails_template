@@ -33,4 +33,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable
 
   belongs_to :role
+
+  def admin?
+    role.title == 'Admin'
+  end
 end

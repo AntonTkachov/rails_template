@@ -11,7 +11,8 @@
         %th Email
         %th Birth Date
         %th Gender
-        %th Role
+        - if policy(:member).can_see_roles?
+          %th Role
         %th Active
         %th Action
     %tbody
@@ -23,16 +24,20 @@
           %td= member.email
           %td= member.birth_date.to_formatted_s(:european)
           %td= member.gender
-          %td= member.role.title
+          - if policy(:member).can_see_roles?
+            %td= member.role.title
           %td= member.active?
           %td
             = link_to 'Details', member_path(member), class: 'btn btn-primary'
-            = link_to 'Edit', edit_member_path(member), class: 'btn btn-primary'
-            = link_to 'Remove', member_path(member), class: 'btn btn-danger',
-                      :'data-confirm' => 'Are you sure?', :'data-method' => :delete
+            - if policy(:member).edit?
+              = link_to 'Edit', edit_member_path(member), class: 'btn btn-primary'
+            - if policy(:member).destroy?
+              = link_to 'Remove', member_path(member), class: 'btn btn-danger',
+                        :'data-confirm' => 'Are you sure?', :'data-method' => :delete
 
 .text-center
   = will_paginate @members
 
-.row
-  = link_to 'New member', new_member_path, class: 'btn btn-success'
+- if policy(:member).new?
+  .row
+    = link_to 'New member', new_member_path, class: 'btn btn-success'

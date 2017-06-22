@@ -11,15 +11,15 @@
       .container
         .navbar-header
           = link_to 'Upwork Premium Challenge', root_path, class: 'navbar-brand'
-        #navbar.collapse.navbar-collapse
-          %ul.nav.navbar-nav
-            %li.active
-              = link_to 'Members', members_path, class: 'active'
-          - if current_user.present?
+        - if current_user.present?
+          #navbar.collapse.navbar-collapse
+            %ul.nav.navbar-nav
+              %li.active
+                = link_to 'Members', members_path, class: 'active'
             %ul.nav.navbar-nav.navbar-right
               %li
                 = link_to 'Sign Out', destroy_user_session_path, method: :delete
-    .container
+    .container.main
       = render 'layouts/flash_messages', flash: flash
 
       = yield
