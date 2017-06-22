@@ -1,5 +1,5 @@
 describe MembersController do
-  let(:user) { FactoryGirl.create(:user, :user) }
+  let(:user) { create(:user, :user) }
 
   before(:each) do
     sign_in(user)
